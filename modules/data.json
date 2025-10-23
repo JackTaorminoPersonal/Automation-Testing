@@ -1,0 +1,62 @@
+{
+    "continueButton": {
+        "type": "button",
+        "refId": "Continue"
+    },
+    "playButton": {
+        "type": "button",
+        "refId": "Play"
+    },
+    "closeButton": {
+        "type": "button",
+        "refId": "Close"
+    },
+    "accessibilityMenu": {
+        "accessButton": {
+            "type": "button",
+            "refId": "Access"
+        },
+        "volumeSlider": {
+            "role": "slider",
+            "refId": "Slider"
+        },
+        "close": {
+            "type": "button",
+            "refId": "AccessibilityMenuClose"
+        },
+        "captionSwitch": {
+            "type": "button",
+            "refId": "Captions"
+        }
+    },
+    "dialogButton": {
+        "type": "button",
+        "refId": "ConvoList"
+    },
+    "nextButton": {
+        "type": "button",
+        "refId": "Next"
+    },
+    "checkBox": {
+        "type": "input[type=\"checkbox\"]",
+        "refId": "Checkbox"
+    },
+    "answerButton": {
+        "type": "button",
+        "refId": "ToggleButton"
+    },
+    "declineAcceptButton": {
+        "accept": {
+            "type": "button",
+            "refId": "Accept"
+        },
+        "decline": {
+            "type": "button",
+            "refId": "Decline"
+        },
+        "undo": {
+            "type": "button",
+            "refId": "CardButton"
+        }
+    }
+}
