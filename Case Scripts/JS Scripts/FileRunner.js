@@ -16,7 +16,9 @@ const runMode = obsMode;
 
         for (const line of lines) {
             try {
+                console.log('Starting test case:', line);
                 let result = await runStepsFromFile('../' + line + '.txt');
+                console.log(`${line}: ${result}`);
                 await fs.appendFile('../Results.txt', `${line}: ${result}\n`);
             } catch (e) {
                 await fs.appendFile('../Results.txt', `${line}: Program Crash\n`);

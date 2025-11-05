@@ -1,0 +1,22 @@
+NAV
+COTA® Multiple Sclerosis
+saveScreen
+lowerVolume
+infoScreen
+animation
+infoScreen
+docReader
+infoScreen
+docQuiz
+infoScreen
+picker
+assessmentResults
+infoScreen
+staticObs
+infoScreen
+docQuiz
+infoScreen
+conversation
+infoScreen
+animation
+AAR

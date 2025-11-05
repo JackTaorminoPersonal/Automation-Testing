@@ -7,8 +7,8 @@ const { closeButton, continueButton, accessibilityMenu, playButton, nextButton, 
 export async function conversation(page, runMode = 0.5) {
     console.log('Starting conversation module...');
     await delay(2);
-    await waitForElementToBeSelectedAndPress(page, continueButton, runMode);
-    await delay(1);
+    /*await waitForElementToBeSelectedAndPress(page, continueButton, runMode);
+    await delay(1);*/
     let continueEnabled = false;
     while (!continueEnabled) {
         continueEnabled = await checkIDEnabled(page, continueButton.type, continueButton.refId);
@@ -41,8 +41,8 @@ export async function conversation(page, runMode = 0.5) {
 export async function docQuiz(page, runMode = 0.5) {
     console.log('Starting docQuiz module...');
     await delay(2);
-    await waitForElementToBeSelectedAndPress(page, continueButton, runMode);
-    await delay(1);
+    /*await waitForElementToBeSelectedAndPress(page, continueButton, runMode);
+    await delay(1);*/
     let continueEnabled = false;
     let checkboxEnabled = false;
     let nextEnabled = false;
@@ -81,8 +81,8 @@ export async function docQuiz(page, runMode = 0.5) {
 export async function animIntervention(page, runMode = 0.5) {
     console.log('Starting animIntervention module...');
     await delay(2);
-    await waitForElementToBeSelectedAndPress(page, continueButton, runMode);
-    await delay(1);
+    /*await waitForElementToBeSelectedAndPress(page, continueButton, runMode);
+    await delay(1);*/
     let continueEnabled = false;
     while (!continueEnabled) {
         let questionsEnabled = await checkIDEnabled(page, answerButton.type, answerButton.refId);
@@ -110,8 +110,8 @@ export async function animIntervention(page, runMode = 0.5) {
 export async function picker(page, runMode = 0.5) {
     console.log('Starting picker module...');
     await delay(2);
-    await waitForElementToBeSelectedAndPress(page, continueButton, runMode);
-    await delay(1);
+    /*await waitForElementToBeSelectedAndPress(page, continueButton, runMode);
+    await delay(1);*/
     let continueEnabled = false;
     let acceptEnabled = false;
     while (!continueEnabled) {
@@ -132,8 +132,8 @@ export async function picker(page, runMode = 0.5) {
 export async function extensivePicker(page, runMode = 0.5) {
     console.log('Starting extensive picker module...');
     await delay(2);
-    await waitForElementToBeSelectedAndPress(page, continueButton, runMode);
-    await delay(1);
+    /*await waitForElementToBeSelectedAndPress(page, continueButton, runMode);
+    await delay(1);*/
     let continueEnabled = false;
     let denyEnabled = false;
     let acceptEnabled = false;
@@ -172,8 +172,8 @@ export async function extensivePicker(page, runMode = 0.5) {
 export async function staticObs(page, runMode = 0.5) {
     console.log('Starting staticObs module...');
     await delay(2);
-    await waitForElementToBeSelectedAndPress(page, continueButton, runMode);
-    await delay(1);
+    /*await waitForElementToBeSelectedAndPress(page, continueButton, runMode);
+    await delay(1);*/
     let continueEnabled = false;
     while (!continueEnabled) {
         await delay(1);
@@ -204,12 +204,12 @@ export async function assessmentResults(page, runMode = 0.5) {
     let responsesEnabled = false;
     while (!continueEnabled) {
         responsesEnabled = await checkIDEnabled(page, nextButton.type, nextButton.refId);
-        if (responsesEnabled) {
+        if (responsesEnabled && !continueEnabled) {
             console.log(nextButton.refId, ' Clicked!');
             await waitForElementToBeSelectedAndPress(page, nextButton, runMode);
         }
+        await delay(2);
         continueEnabled = await checkIDEnabled(page, continueButton.type, continueButton.refId);
-        await delay(runMode);
     }
     await waitForElementToBeSelectedAndPress(page, continueButton, runMode);
 }
@@ -258,9 +258,6 @@ export async function AAR(page, runMode = 0.5, browser) {
         console.log('Browser closed successfully');
     } catch (error) {
         console.error('Failed to close the browser:', error);
-    }
-    finally {
-        process.exit(0);
     }
 }
 
