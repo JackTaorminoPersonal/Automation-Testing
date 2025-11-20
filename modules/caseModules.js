@@ -252,7 +252,9 @@ export async function AAR(page, runMode = 0.5, browser) {
 export async function animation(page, runMode = 0.5) {
     await waitForElementToBeSelectedAndPress(page, playButton, runMode);
     let isEnabled = await checkIDEnabled(page, continueButton.type, continueButton.refId);
-    while (!isEnabled) {
+    const startTime = Date.now();
+    const timeout = 300000; // 5 minute timeout
+    while (!isEnabled || (Date.now() - startTime) < timeout) {
         await delay(runMode);
         isEnabled = await checkIDEnabled(page, continueButton.type, continueButton.refId);
     }

@@ -25,7 +25,7 @@ export async function getElementId(page, type, referenceId, cnt) {
         }
     }
     count++;
-    if (count >= 60) // 60 passes at 2 seconds each of waiting for the element to appear
+    if (count >= 60) // 60 passes at 2 seconds (120 seconds total) waiting for the element to appear
     {
         return null;
     }
