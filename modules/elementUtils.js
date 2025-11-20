@@ -63,6 +63,7 @@ export async function isTargetElementSelected(page, selector) {
 export async function waitForElementToBeSelectedAndPress(page, selector, runMode = 0.5) {
     const startTime = Date.now();
     const timeout = 60000; // 60 seconds timeout
+    await delay(0.5);
     while (Date.now() - startTime < timeout) {
         if (await isTargetElementSelected(page, selector.refId)) {
             console.log(`Element with ID ${selector.refId} is selected.`);

@@ -4,7 +4,7 @@ import { promises as fs } from 'fs';
 
 const autoMode = 0.25;
 const obsMode = 0.5;
-const runMode = obsMode;
+const runMode = autoMode;
 
 (async () => {
 
