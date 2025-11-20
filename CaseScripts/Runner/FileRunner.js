@@ -8,7 +8,7 @@ const runMode = autoMode;
 
 (async () => {
 
-    await fs.writeFile('../Results.txt', 'Test Results for ' + new Date().toLocaleDateString() + '\n\n');
+    await fs.writeFile('Results.txt', 'Test Results for ' + new Date().toLocaleDateString() + '\n\n');
 
     async function readExecuteCases(filePath) {
         const content = await fs.readFile(filePath, 'utf-8');
@@ -17,11 +17,12 @@ const runMode = autoMode;
         for (const line of lines) {
             try {
                 console.log('Starting test case:', line);
-                let result = await runStepsFromFile('../' + line + '.txt');
+                let result = await runStepsFromFile('CaseScripts/' + line + '.txt');
                 console.log(`${line}: ${result}`);
-                await fs.appendFile('../Results.txt', `${line}: ${result}\n`);
+                await fs.appendFile('Results.txt', `${line}: ${result}\n`);
             } catch (e) {
-                await fs.appendFile('../Results.txt', `${line}: Program Crash\n`);
+                console.log(e);
+                await fs.appendFile('Results.txt', `${line}: Program Crash\n`);
             }
         }
     }
@@ -51,5 +52,5 @@ const runMode = autoMode;
         return 'Passed';
     }
 
-    await readExecuteCases('../ExecuteCases.txt');
+    await readExecuteCases('CaseScripts/Runner/ExecuteCases.txt');
 })();
